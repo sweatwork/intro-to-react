@@ -51,7 +51,7 @@ const App = (props) => {
     console.log('clicked')
   }
 
-  console.log('rendering...', counter)
+  console.log('rendering... ', counter)
   // const name = "Peter"
   // const age = 10
   // console.log(name, age)
