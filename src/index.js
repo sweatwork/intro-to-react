@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 // const App = () => (
@@ -16,36 +16,65 @@ import ReactDOM from 'react-dom';
 //   )
 // }
 
-const Hello = (props) => {
+const Hello = ({ name, age }) => {
+  // console.log(check if name can be changed or its a const)  
+  // const name = props.name
+  // const age = props.age 
+  // const { name, age } = props 
+  const bornYear = () => new Date().getFullYear() - age 
+
   return (
     <div>
-      <p>Hello {props.name}, you are {props.age} years old
-      </p>
+      <p>Hello {name}, you are {age} years old</p>
+      <p>So you were probably born in {bornYear()}</p>
     </div>
   )
 }
 
-const Footer = () => {
+// const Footer = () => {
+//   return (
+//     <div>
+//       Greeting app created
+//     </div>
+//   )
+// }
+
+const App = (props) => {
+  const [ counter, setCounter ] = useState(0)
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+
+  const handleClick = () => {
+    console.log('clicked')
+  }
+
+  console.log('rendering...', counter)
+  // const name = "Peter"
+  // const age = 10
+  // console.log(name, age)
+  // return (
+  //     <>
+  //       <h1>Greetings</h1>
+  //       <Hello name="Danish" age={16 + 10} />
+  //       <Hello name={name} age={age} />
+  //       {/* <Footer /> */}
+  //     </>
+  // )
+  // const {counter} = props 
   return (
-    <div>
-      Greeting app created
-    </div>
+    <>
+    <div>{counter}</div>
+    <button onClick={handleClick}>
+      plus
+    </button>
+    </ >
   )
 }
 
-const App = () => {
-  const name = "Peter"
-  const age = 10
-  console.log(name, age)
-  return (
-      <>
-        <h1>Greetings</h1>
-        <Hello name="Danish" age={16 + 10} />
-        <Hello name={name} age={age} />
-        <Footer />
-      </>
-  )
-}
+// let counter = 1
 
 // const App = () => {
 //   const now = new Date()
@@ -62,10 +91,22 @@ const App = () => {
 //   )
 // }
 
-
+// const refresh = () => {
 ReactDOM.render(
-  <App />,
+  <App /* counter={counter} */ />,
   document.getElementById('root')
-)
+  )
+// }
+
+// setInterval(() => {
+//   refresh()
+//   counter += 1
+// }, 1000)
+
+// refresh()
+// counter += 1
+// refresh()
+// counter += 1
+// refresh()
 
 
