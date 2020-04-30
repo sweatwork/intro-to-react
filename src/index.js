@@ -40,7 +40,7 @@ const Hello = ({ name, age }) => {
 // }
 
 const App = (props) => {
-  const [ counter, setCounter ] = useState(0)
+  const [ counter, setCounter ] = useState(0)   //destructuing 
 
   setTimeout(
     () => setCounter(counter + 1),
