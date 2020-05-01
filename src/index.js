@@ -42,14 +42,14 @@ const Hello = ({ name, age }) => {
 const App = (props) => {
   const [ counter, setCounter ] = useState(0)   //destructuing 
 
-  setTimeout(
-    () => setCounter(counter + 1),
-    1000
-  )
+  // setTimeout(
+  //   () => setCounter(counter + 1),
+  //   1000
+  // )
 
-  const handleClick = () => {
-    console.log('clicked')
-  }
+  // const handleClick = () => {
+  //   console.log('clicked')
+  // }
 
   console.log('rendering...', counter)
   // const name = "Peter"
@@ -67,8 +67,11 @@ const App = (props) => {
   return (
     <>
     <div>{counter}</div>
-    <button onClick={handleClick}>
+    <button onClick={() => setCounter(counter + 1)}>
       plus
+    </button>
+    <button onClick={() => setCounter(0)}>     {/*Resetting counter */}
+      zero
     </button>
     </ >
   )
