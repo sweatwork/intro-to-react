@@ -42,6 +42,9 @@ const Hello = ({ name, age }) => {
 const App = (props) => {
   const [ counter, setCounter ] = useState(0)   //destructuing 
 
+  const increaseByOne = () => setCounter(counter + 1)
+
+  const setToZero = () => setCounter(0)
   // setTimeout(
   //   () => setCounter(counter + 1),
   //   1000
@@ -67,10 +70,10 @@ const App = (props) => {
   return (
     <>
     <div>{counter}</div>
-    <button onClick={() => setCounter(counter + 1)}>
+    <button onClick={increaseByOne}>
       plus
     </button>
-    <button onClick={() => setCounter(0)}>     {/*Resetting counter */}
+    <button onClick={setToZero}>     {/*Resetting counter */}
       zero
     </button>
     </ >
