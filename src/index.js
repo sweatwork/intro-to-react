@@ -1,118 +1,35 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-// const App = () => (
-//   <div>
-//     <p>Hello world</p>
-//   </div>
-// )
 
-// const App = () => {
-//   console.log('Hello from component')
-//   return (
-//     <div>
-//       <p>Hello world</p>
-//     </div>
-//   )
-// }
+const Display = ({counter}) => <div>{counter}</div>
 
-const Hello = ({ name, age }) => {
-  // console.log(check if name can be changed or its a const)  
-  // const name = props.name
-  // const age = props.age 
-  // const { name, age } = props 
-  const bornYear = () => new Date().getFullYear() - age 
-
-  return (
-    <div>
-      <p>Hello {name}, you are {age} years old</p>
-      <p>So you were probably born in {bornYear()}</p>
-    </div>
-  )
-}
-
-// const Footer = () => {
-//   return (
-//     <div>
-//       Greeting app created
-//     </div>
-//   )
-// }
+const Button = ({handleClick, text}) => (
+<button onClick={handleClick}>
+  {text}
+</button>
+)
 
 const App = (props) => {
   const [ counter, setCounter ] = useState(0)   //destructuing 
 
+
   const increaseByOne = () => setCounter(counter + 1)
-
+  const decreaseByOne = () => setCounter(counter - 1)
   const setToZero = () => setCounter(0)
-  // setTimeout(
-  //   () => setCounter(counter + 1),
-  //   1000
-  // )
+  
 
-  // const handleClick = () => {
-  //   console.log('clicked')
-  // }
-
-  console.log('rendering...', counter)
-  // const name = "Peter"
-  // const age = 10
-  // console.log(name, age)
-  // return (
-  //     <>
-  //       <h1>Greetings</h1>
-  //       <Hello name="Danish" age={16 + 10} />
-  //       <Hello name={name} age={age} />
-  //       {/* <Footer /> */}
-  //     </>
-  // )
-  // const {counter} = props 
   return (
     <>
-    <div>{counter}</div>
-    <button onClick={increaseByOne}>
-      plus
-    </button>
-    <button onClick={setToZero}>     {/*Resetting counter */}
-      zero
-    </button>
+    <Display counter={counter} />
+    <Button handleClick={increaseByOne} text='plus'/>
+    <Button handleClick={setToZero} text='zero' />
+    <Button handleClick={decreaseByOne} text='minus' />
     </ >
   )
 }
 
-// let counter = 1
-
-// const App = () => {
-//   const now = new Date()
-//   const a = 10
-//   const b = 20
-
-//   return (
-//     <div>
-//       <p>Hello world, it is {now.toString()}</p>
-//       <p>
-//         {a} plus {b} is {a + b}
-//       </p>
-//     </div>
-//   )
-// }
-
-// const refresh = () => {
 ReactDOM.render(
-  <App /* counter={counter} */ />,
+  <App />,
   document.getElementById('root')
   )
-// }
-
-// setInterval(() => {
-//   refresh()
-//   counter += 1
-// }, 1000)
-
-// refresh()
-// counter += 1
-// refresh()
-// counter += 1
-// refresh()
-
-
